@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const myName ='Hiroki';
+        let myAge =22;
+        
+        console.log(myName);
+        console.log(myAge);
+
+        const cart =[
+            ['Kindle Fire HD 10', 19980, 1],
+            ['プログラミングの本', 1500, 1],
+            ['ミネラルウォーター', 280, 3],
+            ['液晶テレビ24型', 35000, 1],
+            ['スマホケース', 1800, 2]
+        ];
+        
+        console.log('商品名：' + cart[1][0]);
+        console.log('価格：' + cart[1][1] + '円');
+        console.log('個数：' + cart[1][2]);
+
+
+        const userID = ['user34','','user18','','user55','user38'];
+
+        const result = userID.filter( element => {
+            return element !== '';
+           })
+        const res = result.map( element => {
+            return element + 'さん';
+        })
+
+        res.forEach( element => {
+
+            console.log(element);
+
+        })
+
+        
+        const luck = ['大吉', '小吉', '吉', '凶']
+
+        const rnd = Math.floor(Math.random() * luck.length);
+        
+        console.log(luck[rnd]);
+
+        if(myWeight >= 80){
+            console.log('もっと頑張りましょう');
+        }else if()
+    </script>
+</body>
+</html>
