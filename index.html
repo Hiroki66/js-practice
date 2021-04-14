@@ -8,16 +8,24 @@
 </head>
 <body>
     <script>
-    let state = true;
+    let res = 0;
+    let user = [['田中一郎', 30, '東京都']];
+    res = output(user);
+    console.log(res);
 
-    while(state) {
-        // 0〜9の乱数を生成する
-        let random = Math.floor(Math.random() * 10);
+    // 新規ユーザーを追加
+    user.push(['伊藤花子', 23, '音楽鑑賞']);
+    res = output(user);
+    console.log(res);
 
-        // 数値が3になったら繰り返し処理を終了する
-        if(random === 3) state = false;
+    // 新規ユーザーを追加
+    user.push(['木村涼子', 18, 'ウォーキング']);
+    res = output(user);
+    console.log(res);
 
-        console.log(random);
+    // 配列の中身をすべて出力する関数を作成
+    function output(array) {
+        return array.length
     }
     </script>
 </body>
