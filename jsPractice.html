@@ -128,6 +128,19 @@
         }
 
         console.log('ゲーム終了');
+
+        const Dollar = 108;
+        const getDollarToYen = (number) => {
+            return number * Dollar;
+        }
+
+        while(true) {
+            const money = prompt('ドルから円に換算します。　＄');
+
+            if(money) {
+            console.log(getDollarToYen(money) + '円です');
+            } else break;
+        }
     </script>
 </body>
 </html>
