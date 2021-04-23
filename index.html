@@ -10,6 +10,8 @@
     <h2>小見出し１</h2>
     <div></div>
     <button id="btn">実行</button>
+    <button id="btnPlus">追加</button>
+    <ul id="list"></ul>
     <script>
         console.log(document.head);
         console.log(document.body);
@@ -32,7 +34,16 @@
 
         addEventListener('click', () => {
             console.log('クリックされました！');
-        
+        })
+
+        const list = document.getElementById('list');
+        const btnPlus = document.getElementById('btnPlus');
+
+        btnPlus.addEventListener('click', () => {
+            const li = document.createElement('li');
+
+            li.textContent = 'これはリスト要素';
+            list.appendChild(li);
         })
     </script>
   </body>
