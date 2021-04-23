@@ -9,6 +9,7 @@
     <h1>サンプルタイトル</h1>
     <h2>小見出し１</h2>
     <div></div>
+    <button id="btn">実行</button>
     <script>
         console.log(document.head);
         console.log(document.body);
@@ -26,6 +27,13 @@
 
         div.appendChild(h1);
         console.log(document.body);
+
+        const btn = document.getElementById('btn');
+
+        addEventListener('click', () => {
+            console.log('クリックされました！');
+        
+        })
     </script>
   </body>
 </html>
