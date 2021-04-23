@@ -9,9 +9,15 @@
     <h1>サンプルタイトル</h1>
     <h2>小見出し１</h2>
     <div></div>
-    <button id="btn">実行</button>
+    <form name="myForm">
+
+        <input type="text" name="myText" />
+    
+    </form>
+    <button id="btn">count</button>
     <button id="btnPlus">追加</button>
     <ul id="list"></ul>
+    
     <script>
         console.log(document.head);
         console.log(document.body);
@@ -32,6 +38,12 @@
 
         const btn = document.getElementById('btn');
 
+        btn.addEventListener("click", () => {
+            const value = document.forms.myForm.myText.value;
+
+            console.log(value.length + "文字");
+        }); 
+
         addEventListener('click', () => {
             console.log('クリックされました！');
         })
@@ -45,6 +57,8 @@
             li.textContent = 'これはリスト要素';
             list.appendChild(li);
         })
+
+
     </script>
   </body>
 </html>
