@@ -9,7 +9,7 @@
     <h1>サンプルタイトル</h1>
     <h2>小見出し１</h2>
     <div></div>
-    <form name="myForm">
+    <form name="myFormA">
 
         <input type="text" name="myText" />
     
@@ -17,7 +17,15 @@
     <button id="btn">count</button>
     <button id="btnPlus">追加</button>
     <ul id="list"></ul>
+
+    <form name="myFormB">
+        <input type="radio" name="area" value="tokyo" />東京都
+        <input type="radio" name="area" value="aichi" />愛知県
+        <input type="radio" name="area" value="osaka" />大阪府
+    </form>
     
+    <button id="radio-btn">実行</button>
+
     <script>
         console.log(document.head);
         console.log(document.body);
@@ -39,7 +47,7 @@
         const btn = document.getElementById('btn');
 
         btn.addEventListener("click", () => {
-            const value = document.forms.myForm.myText.value;
+            const value = document.forms.myFormA.myText.value;
 
             console.log(value.length + "文字");
         }); 
@@ -58,7 +66,13 @@
             list.appendChild(li);
         })
 
+        const Rbtn = document.getElementById('radio-btn');
 
+            Rbtn.addEventListener('click', () => {
+                const formB = document.forms.myFormB;
+
+                console.log(formB.area.value);
+        });
     </script>
   </body>
 </html>
