@@ -1,32 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>サンプルデモ</title>
+  </head>
+  <body>
+
+    <h1>サンプルタイトル</h1>
+    <h2>小見出し１</h2>
+    <div></div>
     <script>
-    let res = 0;
-    let user = [['田中一郎', 30, '東京都']];
-    res = output(user);
-    console.log(res);
+        console.log(document.head);
+        console.log(document.body);
+        console.log(window);
 
-    // 新規ユーザーを追加
-    user.push(['伊藤花子', 23, '音楽鑑賞']);
-    res = output(user);
-    console.log(res);
+        const h2 = document.createElement('h2');
 
-    // 新規ユーザーを追加
-    user.push(['木村涼子', 18, 'ウォーキング']);
-    res = output(user);
-    console.log(res);
+        h2.textContent = '小見出し２';
+        document.body.appendChild(h2);
 
-    // 配列の中身をすべて出力する関数を作成
-    function output(array) {
-        return array.length
-    }
+        const div = document.querySelector('div');
+        const h1 = document.createElement('h1');
+
+        h1.textContent = 'これはh１要素です';
+
+        div.appendChild(h1);
+        console.log(document.body);
     </script>
-</body>
+  </body>
 </html>
