@@ -1,177 +1,192 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
+    <form name="myForm">
+      <label>利用したことのあるOSを選択してください</label><br />
+      <input type="checkbox" name="os" value="windows" />Windows
+      <input type="checkbox" name="os" value="macos" />Mac OS
+      <input type="checkbox" name="os" value="linux" />Linux
+      <input type="checkbox" name="os" value="ios" />iOS
+      <input type="checkbox" name="os" value="android" />Android
+    </form>
+
+    <button id="btn">実行</button>
+
     <script>
-        const myName ='Hiroki';
-        let myAge =22;
-        
-        console.log(myName);
-        console.log(myAge);
+      const myName = "Hiroki";
+      let myAge = 22;
 
-        const cart =[
-            ['Kindle Fire HD 10', 19980, 1],
-            ['プログラミングの本', 1500, 1],
-            ['ミネラルウォーター', 280, 3],
-            ['液晶テレビ24型', 35000, 1],
-            ['スマホケース', 1800, 2]
-        ];
-        
-        console.log('商品名：' + cart[1][0]);
-        console.log('価格：' + cart[1][1] + '円');
-        console.log('個数：' + cart[1][2]);
+      console.log(myName);
+      console.log(myAge);
 
+      const cart = [
+        ["Kindle Fire HD 10", 19980, 1],
+        ["プログラミングの本", 1500, 1],
+        ["ミネラルウォーター", 280, 3],
+        ["液晶テレビ24型", 35000, 1],
+        ["スマホケース", 1800, 2],
+      ];
 
-        const userID = ['user34','','user18','','user55','user38'];
+      console.log("商品名：" + cart[1][0]);
+      console.log("価格：" + cart[1][1] + "円");
+      console.log("個数：" + cart[1][2]);
 
-        const result = userID.filter( element => {
-            return element !== '';
-           })
-        const res = result.map( element => {
-            return element + 'さん';
-        })
+      const userID = ["user34", "", "user18", "", "user55", "user38"];
 
-        res.forEach( element => {
+      const result = userID.filter((element) => {
+        return element !== "";
+      });
+      const res = result.map((element) => {
+        return element + "さん";
+      });
 
-            console.log(element);
+      res.forEach((element) => {
+        console.log(element);
+      });
 
-        })
+      const luck = ["大吉", "小吉", "吉", "凶"];
 
-        
-        const luck = ['大吉', '小吉', '吉', '凶']
+      const rnd = Math.floor(Math.random() * luck.length);
 
-        const rnd = Math.floor(Math.random() * luck.length);
-        
-        console.log(luck[rnd]);
+      console.log(luck[rnd]);
 
-        const myWeight = 60;
+      const myWeight = 60;
 
-        if(myWeight >= 80){
-            console.log('もっと頑張りましょう');
-        }else if(myWeight >= 70){
-            console.log('確実に成果が出ていますよ');
-        }else if(myWeight > 60){
-            console.log('ついにここまで来ましたね');
-        }else{
-            console.log('ダイエット成功です');
+      if (myWeight >= 80) {
+        console.log("もっと頑張りましょう");
+      } else if (myWeight >= 70) {
+        console.log("確実に成果が出ていますよ");
+      } else if (myWeight > 60) {
+        console.log("ついにここまで来ましたね");
+      } else {
+        console.log("ダイエット成功です");
+      }
+
+      const myAnimal = "猫";
+
+      switch (myAnimal) {
+        case "犬":
+          console.log("ワンワン！");
+          break;
+        case "猫":
+          console.log("にゃーん!");
+          break;
+        case "牛":
+          console.log("モー！");
+          break;
+        case "ライオン":
+          console.log("ガオー！");
+          break;
+        case "豚":
+          console.log("ブー！");
+          break;
+        default:
+          console.log("該当する鳴き声がありません");
+      }
+
+      let state = true;
+
+      while (state) {
+        let random = Math.floor(Math.random() * 10);
+        if (random === 3) state = false;
+        console.log(random);
+      }
+
+      for (let i = 0; i < 5; i++) {
+        console.log(i);
+
+        if (i === 3) break;
+      }
+
+      for (let i = 0; i < 10; i++) {
+        if (i % 2 === 0) continue;
+
+        console.log(i);
+      }
+
+      let enemy = 10;
+      let command;
+      let random;
+
+      while (true) {
+        command = prompt("敵が現れた！(【1】攻撃 【2】逃げる)");
+        random = Math.floor(Math.random() * 10);
+
+        if (command === "1") {
+          enemy = enemy - random;
+          console.log(random + "の攻撃！");
+          if (enemy <= 0) {
+            console.log("敵を倒した！");
+            break;
+          }
+          console.log("敵の体力は残り" + enemy + "です");
+        } else if (command === "2") {
+          console.log("無事に逃げました");
+          break;
         }
+      }
 
-        const myAnimal = '猫';
+      console.log("ゲーム終了");
 
-        switch(myAnimal) {
-            case '犬':
-                console.log('ワンワン！');
-                break;
-            case '猫':
-                console.log('にゃーん!');
-                break;
-            case '牛':
-                console.log('モー！');
-                break;
-            case 'ライオン':
-                console.log('ガオー！');
-                break;
-            case '豚':
-                console.log('ブー！');
-                break;
-            default:
-                console.log('該当する鳴き声がありません');
+      const Dollar = 108;
+      const getDollarToYen = (number) => {
+        return number * Dollar;
+      };
+
+      while (true) {
+        const money = prompt("ドルから円に換算します。　＄");
+
+        if (money) {
+          console.log(getDollarToYen(money) + "円です");
+        } else break;
+      }
+
+      const user_name = prompt("名前を入力してください");
+      const user_tell = prompt("電話番号を入力してください");
+
+      const user = {};
+
+      user.name = user_name;
+      user.tell = user_tell;
+
+      console.log(user);
+
+      class Animal {
+        constructor(name, age) {
+          this.name = name;
+          this.age = age;
         }
+      }
 
-        let state = true;
-
-        while(state) {
-            let random = Math.floor(Math.random() * 10);
-            if (random === 3) state = false;
-            console.log(random);
+      class Cat extends Animal {
+        constructor(name, age, type) {
+          super(name, age);
+          this.type = type;
         }
-
-        for(let i = 0; i < 5; i++ ){
-            console.log(i);
-
-            if(i === 3) break;
+        speak() {
+          console.log(this.name + "がにゃーんと鳴きました！");
         }
+      }
 
-        for(let i = 0; i < 10; i++ ){
-            if(i % 2 === 0) continue;
+      const cat = new Cat("タマ", 3, "シャム");
 
-            console.log(i);
-        }
+      cat.speak();
 
-        let enemy = 10;
-        let command;
-        let random;
+      const btn = document.getElementById("btn");
 
-        while(true) {
-            command = prompt('敵が現れた！(【1】攻撃 【2】逃げる)');
-            random = Math.floor(Math.random() * 10);
+      btn.addEventListener("click", () => {
+        const form = document.forms.myForm;
 
-            if(command === '1'){
-
-                enemy = enemy - random;
-                console.log(random + 'の攻撃！');
-                if(enemy <= 0){
-                    console.log('敵を倒した！');
-                    break;
-                }
-                console.log('敵の体力は残り'　+ enemy + 'です');
-            } else if(command === '2'){
-
-                console.log('無事に逃げました');
-                break;
-            }
-        }
-
-        console.log('ゲーム終了');
-
-        const Dollar = 108;
-        const getDollarToYen = (number) => {
-            return number * Dollar;
-        }
-
-        while(true) {
-            const money = prompt('ドルから円に換算します。　＄');
-
-            if(money) {
-            console.log(getDollarToYen(money) + '円です');
-            } else break;
-        }
-
-        const user_name = prompt('名前を入力してください');
-        const user_tell = prompt('電話番号を入力してください');
-
-        const user = {}
-
-        user.name = user_name;
-        user.tell = user_tell;
-
-        console.log(user);
-
-        class Animal {
-            constructor(name, age) {
-                this.name = name;
-                this.age = age;
-            }
-        }
-
-        class Cat extends Animal {
-            constructor(name, age, type) {
-            super(name, age);
-            this.type = type;
-            }
-            speak() {
-                console.log(this.name + 'がにゃーんと鳴きました！');
-            }
-        }
-
-        const cat = new Cat('タマ', 3, 'シャム');
-
-        cat.speak();
+        form.os.forEach((item) => {
+          if (item.checked) console.log(item.value);
+        });
+      });
     </script>
-</body>
+  </body>
 </html>

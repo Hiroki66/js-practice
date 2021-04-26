@@ -1,78 +1,88 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>サンプルデモ</title>
   </head>
   <body>
-
-    <h1>サンプルタイトル</h1>
+    <h1 id="high1">サンプルタイトル</h1>
     <h2>小見出し１</h2>
     <div></div>
     <form name="myFormA">
-
-        <input type="text" name="myText" />
-    
+      <input id="myName" type="text" name="myText" />
     </form>
     <button id="btn">count</button>
     <button id="btnPlus">追加</button>
     <ul id="list"></ul>
-
     <form name="myFormB">
-        <input type="radio" name="area" value="tokyo" />東京都
-        <input type="radio" name="area" value="aichi" />愛知県
-        <input type="radio" name="area" value="osaka" />大阪府
+      <input type="radio" name="area" value="tokyo" />東京都
+      <input type="radio" name="area" value="aichi" />愛知県
+      <input type="radio" name="area" value="osaka" />大阪府
     </form>
-    
-    <button id="radio-btn">実行</button>
+
+    <button id="radio-btn">実行</button><br /><br />
+
+    <textarea id="text" cols="50" rows="7"></textarea>
+    <p id="count">0文字</p>
 
     <script>
-        console.log(document.head);
-        console.log(document.body);
-        console.log(window);
+      console.log(document.head);
+      console.log(document.body);
+      console.log(window);
 
-        const h2 = document.createElement('h2');
+      const h2 = document.createElement("h2");
 
-        h2.textContent = '小見出し２';
-        document.body.appendChild(h2);
+      h2.textContent = "小見出し２";
+      document.body.appendChild(h2);
 
-        const div = document.querySelector('div');
-        const h1 = document.createElement('h1');
+      const div = document.querySelector("div");
+      const h1 = document.createElement("h1");
 
-        h1.textContent = 'これはh１要素です';
+      h1.textContent = "これはh１要素です";
 
-        div.appendChild(h1);
-        console.log(document.body);
+      div.appendChild(h1);
+      console.log(document.body);
 
-        const btn = document.getElementById('btn');
+      const btn = document.getElementById("btn");
 
-        btn.addEventListener("click", () => {
-            const value = document.forms.myFormA.myText.value;
+      btn.addEventListener("click", () => {
+        const value = document.forms.myFormA.myText.value;
 
-            console.log(value.length + "文字");
-        }); 
+        console.log(value.length + "文字");
+      });
 
-        addEventListener('click', () => {
-            console.log('クリックされました！');
-        })
+      addEventListener("click", () => {
+        console.log("クリックされました！");
+      });
 
-        const list = document.getElementById('list');
-        const btnPlus = document.getElementById('btnPlus');
+      const list = document.getElementById("list"); //<ul id="list"></ul>
+      const btnPlus = document.getElementById("btnPlus");
+      const myName = document.getElementById("myName");
 
-        btnPlus.addEventListener('click', () => {
-            const li = document.createElement('li');
+      btnPlus.addEventListener("click", () => {
+        const li = document.createElement("li"); //<li></li>
 
-            li.textContent = 'これはリスト要素';
-            list.appendChild(li);
-        })
+        li.textContent = `これは${myName.value}です`; //<li>これは　　　です</li>
+        list.appendChild(li);
+      });
 
-        const Rbtn = document.getElementById('radio-btn');
+      const Rbtn = document.getElementById("radio-btn");
 
-            Rbtn.addEventListener('click', () => {
-                const formB = document.forms.myFormB;
+      Rbtn.addEventListener("click", () => {
+        const formB = document.forms.myFormB;
 
-                console.log(formB.area.value);
-        });
+        console.log(formB.area.value);
+      });
+
+      const text = document.getElementById("text");
+      const count = document.getElementById("count");
+      text.addEventListener("keyup", () => {
+        const inputText = text.length;
+
+        count.textContent = inputText.length + "文字";
+      });
+
+      const aaa = document.getElementById("high1");
     </script>
   </body>
 </html>
