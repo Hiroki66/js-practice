@@ -8,13 +8,11 @@
   </head>
   <body>
     <script>
-      console.log("スタート");
+        const url = 'https://qiita.com/api/v2/tags/javascript/items';
 
-      setTimeout(() => {
-      console.log("処理が完了");
-      }, 2000)
-
-      console.log("終了");
+        fetch(url)
+        .then(data => data.json())
+        .then(data => console.log(data))
     </script>
   </body>
 </html>
