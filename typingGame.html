@@ -5,7 +5,7 @@
     <title>タイピングゲーム</title>
     <style>
       body {
-        font-size: 6em;
+        font-size: 3em;
         text-align: center;
       }
 
@@ -25,6 +25,15 @@
 
       #text {
         color: #fff;
+      }
+
+      span {
+        transition: all 300ms 0s ease;
+      }
+
+      .add-color {
+        font-size: 0.5em;
+        color: #666;
       }
     </style>
   </head>
@@ -72,26 +81,37 @@
         "programming",
       ];
 
+      let checkTexts = [];
+
       const createText = () => {
         const p = document.getElementById("text");
 
         const rnd = Math.floor(Math.random() * textLists.length);
 
-        p.textContent = '';
+        p.textContent = "";
 
-        textLists[rnd].split('').map(value => {
-            
-            const span = document.createElement('span');
+        checkTexts = textLists[rnd].split("").map((value) => {
+          const span = document.createElement("span");
 
-            span.textContent = value;
-            
-            p.appendChild(span);
-        })
+          span.textContent = value;
+
+          p.appendChild(span);
+
+          return span;
+        });
       };
 
       createText();
 
-      const keyDown = (e) => {};
+      const keyDown = (e) => {
+        if (e.key === checkTexts[0].textContent) {
+          checkTexts[0].className = "add-color";
+
+          checkTexts.shift();
+
+          if (!checkTexts.length) createText();
+        }
+      };
 
       const rankCheck = (rank) => {};
 
@@ -100,7 +120,9 @@
       const timer = () => {};
 
       start.addEventListener("click", () => {
-          createText();
+        createText();
+
+        document.addEventListener("keydown", keyDown);
       });
     </script>
   </body>
