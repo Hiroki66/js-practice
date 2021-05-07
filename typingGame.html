@@ -38,7 +38,7 @@
     </style>
   </head>
   <body>
-    <p id="count">60</p>
+    <p id="count"></p>
     <div id="wrap">
       <p id="text"></p>
     </div>
@@ -47,6 +47,17 @@
     <script>
       const wrap = document.getElementById("wrap");
       const start = document.getElementById("start");
+      const count = document.getElementById("count");
+      const p = document.getElementById("text");
+
+      let score = 0;
+      let checkTexts = [];
+
+      const count_timer = 3;
+
+      const rank_b_point = 100;
+      const rank_a_point = 200;
+      const rank_s_point = 300;
 
       const textLists = [
         "Hello World",
@@ -81,79 +92,79 @@
         "programming",
       ];
 
-      let checkTexts = [];
+      count.textContent = count_timer;
 
       const createText = () => {
-        const p = document.getElementById("text");
-
         const rnd = Math.floor(Math.random() * textLists.length);
-
         p.textContent = "";
-
         checkTexts = textLists[rnd].split("").map((value) => {
           const span = document.createElement("span");
-
           span.textContent = value;
-
           p.appendChild(span);
-
           return span;
         });
       };
 
-      createText();
-
-      let score = 0;
-
       const keyDown = (e) => {
-          wrap.style.backgroundColor = '#666';
+        wrap.style.backgroundColor = "#666";
+
         if (e.key === checkTexts[0].textContent) {
           checkTexts[0].className = "add-color";
           checkTexts.shift();
-
           score++;
-
           if (!checkTexts.length) createText();
-        } else if(e.key === 'Shift') {
-            wrap.style.backgroundColor = '#666';
+        } else if (e.key === "Shift") {
+          wrap.style.backgroundColor = "#00f";
         } else {
-            wrap.style.backgroundColor = 'red';
+          wrap.style.backgroundColor = "red";
         }
       };
 
       const rankCheck = (score) => {
-        let text = "";
+        const rank_list = ["C", "B", "A", "S"];
 
-        if (score < 100) {
-          text = `あなたのランクはCです。\nBランクまであと${
-            100 - score
-          }文字です。`;
-        } else if (score < 200) {
-          text = `あなたのランクはBです。\nAランクまであと${
-            200 - score
-          }文字です。`;
-        } else if (score < 300) {
-          text = `あなたのランクはAです。\nSランクまであと${
-            300 - score
-          }文字です。`;
-        } else if (score >= 300) {
-          text = `あなたのランクはSです。\nおめでとうございます！`;
+        let test;
+        let rank;
+        let next_rank;
+        let next_point;
+
+        if (score < rank_b_point) {
+          rank = rank_list[0];
+          next_rank = rank_list[1];
+          next_point = rank_b_point;
+        } else if (score < rank_a_point) {
+          rank = rank_list[1];
+          next_rank = rank_list[2];
+          next_point = rank_a_point;
+        } else if (score < rank_s_point) {
+          rank = rank_list[2];
+          next_rank = rank_list[3];
+          next_point = rank_s_point;
+        } else {
+          rank = rank_list[3];
+          next_rank = "";
+          next_point = 0;
         }
+
+        if (rank != rank_list[3]) {
+          text = `あなたのランクは${rank}です。\n${next_rank}ランクまであと${
+            next_point - score
+          }文字です。`;
+        } else {
+          `あなたのランクは${rank}です。\nおめでとうございます！`;
+        }
+
         return `${score}文字打てました！\n${text}\n【OK】リトライ／【キャンセル】終了`;
       };
 
       const gameOver = (id) => {
         clearInterval(id);
-
         const result = confirm(rankCheck(score));
-
-        if(result) window.location.reload();
+        if (result) window.location.reload();
       };
 
       const timer = () => {
-        let time = 60;
-
-        const count = document.getElementById("count");
+        let time = count_timer;
 
         const id = setInterval(() => {
           if (time <= 0) gameOver(id);
@@ -163,13 +174,16 @@
 
       start.addEventListener("click", () => {
         timer();
-
-        createText();
-
+        // createText();
         start.style.display = "none";
-
         document.addEventListener("keydown", keyDown);
       });
+
+      const init = () => {
+        createText();
+      }
+
+      init();
     </script>
   </body>
 </html>
