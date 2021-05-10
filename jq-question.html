@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jq問題</title>
+  </head>
+  <style></style>
+  <body>
+    <div id="wrap">
+      <h1>サンプルタイトル</h1>
+      <div>
+        <p class="text">こんにちは</p>
+      </div>
+      <p class="text">今日は良い天気ですね！</p>
+    </div>
+    <ul>
+      <li class="list">項目1</li>
+      <li class="list">項目2</li>
+      <li class="list">項目3</li>
+    </ul>
+
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+        const list = $('.list').text();
+        const text = $('#wrap div .text').text();
+        const text2 = $('#wrap div .text, .list').text();
+
+        console.log(list);
+        console.log(text);
+        console.log(text2);
+    </script>
+  </body>
+</html>
