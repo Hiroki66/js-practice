@@ -1,51 +1,50 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>jq問題</title>
+    <meta charset="utf-8" />
+    <title>jQueryの練習</title>
+    <style>
+      #wrap {
+        width: 800px;
+        margin: auto;
+      }
+      .list {
+        width: 20%;
+        padding: 10px 30px;
+        margin: 30px 10px;
+        list-style-type: circle;
+        font-weight: bold;
+        line-height: 2;
+        border: 1px solid #aaa;
+      }
+    </style>
   </head>
-  <style></style>
+
   <body>
     <div id="wrap">
-      <h1>サンプルタイトル</h1>
-      <div>
-        <p class="text">こんにちは</p>
+      <div id="title">
+        <h1>サンプルタイトル</h1>
+        <time>2020-04-06</time>
       </div>
-      <p class="text">今日は良い天気ですね！</p>
+      <p>テキストテキストテキストテキストテキストテキストテキストテキスト</p>
+      <p>テキストテキストテキストテキスト</p>
+      <ul>
+        <li>テスト項目1</li>
+        <li>テスト項目2</li>
+        <li>テスト項目3</li>
+      </ul>
     </div>
-    <ul>
-      <li class="list">項目1</li>
-      <li class="list">項目2</li>
-      <li class="list">項目3</li>
-    </ul>
 
-    <h1>
-        <span id="1">あ</span>
-        <span id="2">ろ</span>
-        <span id="3">さ</span>
-        <span id="4">か</span>
-        <span id="5">て</span>
-        <span id="6">い</span>
-        <span id="7">な</span>
-        <span id="8">は</span>
-        <span id="9">き</span>
-        <span id="10">ろ</span>
-      </h1>
-
-    <script src="jquery-3.6.0.min.js"></script>
+    <script src="jquery.min.js"></script>
     <script>
-        const list = $('.list').text();
-        const text = $('#wrap div .text').text();
-        const text2 = $('#wrap div .text, .list').text();
-
-        console.log(list);
-        console.log(text);
-        console.log(text2);
-
-        $('#2, #3, #5, #7, #8, #9').hide();
-
+      $("#title").css("margin-bottom", "50px");
+      $("h1").css("text-align", "center");
+      $("time").css({
+        padding: "5px 10px",
+        "background-color": "#666",
+        color: "#fff",
+      });
+      $("ul").addClass("list");
     </script>
   </body>
 </html>
