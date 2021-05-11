@@ -5,57 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>jQuery</title>
-    <style>
-        .red {
-            color: red;
-        }
-        .green {
-            color: green;
-        }
-        .blue {
-            color: blue;
-        }
-    </style>
   </head>
   <body>
-    <div>
-      <h1 id="title">タイトル</h1>
-      <p class="message">こんにちは</p>
-    </div>
-
+    <h1>jQueryを勉強中！</h1>
     <ul>
-      <li class="list-test">項目１</li>
-      <li class="sample-list">項目２</li>
-      <li class="sample-text">項目３</li>
+      <li>Python</li>
+      <li>Ruby</li>
+      <li>PHP</li>
     </ul>
+
+    <p style="display:none;color:red">入力されたパスワードが違います</p>
 
     <script src="jquery.min.js"></script>
     <script>
-      $("h1").css({
-        width: "400px",
-        color: "#fff",
-        "text-align": "center",
-        border: "1px solid #333",
-        "background-color": "#f00",
+      $("h1").text("jQueryを毎日勉強しています！");
+
+      const list = $("<li>", {
+        id: "myid",
+        class: "myclass",
+        text: "JavaScript",
       });
 
-      $('.list-test').addClass('red');
-      $('.sample-list').addClass('green');
-      $('.sample-text').addClass('blue');
+      $("ul").append(list);
+      $("ul").append("<li>Node.js</li>");
+      $('p').show();
 
-      const title = $("#title").text();
-      const list = $(".message").text();
-      const text = $('li[class^="sample"]').text();
-      const value = $('h1').css(['width', 'color']);
-      const result = $('.sample-list').hasClass('green');
-
- 
-      console.log(title);
-      console.log(list);
-      console.log(text);
-      console.log(value);
-
-      if(result) $('.sample-list').css('color', 'black');
     </script>
   </body>
 </html>
