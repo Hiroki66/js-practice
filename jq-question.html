@@ -3,48 +3,20 @@
   <head>
     <meta charset="utf-8" />
     <title>jQueryの練習</title>
-    <style>
-      #wrap {
-        width: 800px;
-        margin: auto;
-      }
-      .list {
-        width: 20%;
-        padding: 10px 30px;
-        margin: 30px 10px;
-        list-style-type: circle;
-        font-weight: bold;
-        line-height: 2;
-        border: 1px solid #aaa;
-      }
-    </style>
   </head>
-
   <body>
-    <div id="wrap">
-      <div id="title">
-        <h1>サンプルタイトル</h1>
-        <time>2020-04-06</time>
-      </div>
-      <p>テキストテキストテキストテキストテキストテキストテキストテキスト</p>
-      <p>テキストテキストテキストテキスト</p>
-      <ul>
-        <li>テスト項目1</li>
-        <li>テスト項目2</li>
-        <li>テスト項目3</li>
-      </ul>
-    </div>
+    <ul></ul>
 
     <script src="jquery.min.js"></script>
     <script>
-      $("#title").css("margin-bottom", "50px");
-      $("h1").css("text-align", "center");
-      $("time").css({
-        padding: "5px 10px",
-        "background-color": "#666",
-        color: "#fff",
-      });
-      $("ul").addClass("list");
+      const os = ['windows', 'Mac OS', 'Linux', 'iOS', 'Android'];
+
+      for(let i=0; i<os.length; i++) {
+        const li = $('<li>',{text: os[i]});
+
+          $('ul').append(li);
+      }
+
     </script>
   </body>
 </html>
